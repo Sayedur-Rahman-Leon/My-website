@@ -1,50 +1,289 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Profile</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advanced Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://images.unsplash.com/photo-1492724441997-5dc865305da7');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    /* Project Cards */
+    .project-card {
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.4s;
+      border: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .project-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 50px 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #0d6efd;
+    }
+
+    /* Navbar Scroll Effect */
+    .navbar.scrolled {
+      background: rgba(0,0,0,0.9) !important;
+      transition: 0.4s;
+    }
+  </style>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">SRLeon</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-				aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarScroll">
-				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#about">About</a>
-					</li>
 
-					<li class="nav-item">
-						<a class="nav-link disabled" aria-disabled="true">Link</a>
-					</li>
-				</ul>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">MyPortfolio</a>
 
-					<a class=" d-flex nav-link" href="#about">About</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-			</div>
-		</div>
-	</nav>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
 
+      <!-- Dark Mode Toggle -->
+      <button class="btn btn-outline-light ms-3" id="themeToggle">
+        <i class="bi bi-moon"></i>
+      </button>
+    </div>
+  </div>
+</nav>
 
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-		integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-		crossorigin="anonymous"></script>
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="container" data-aos="zoom-in">
+    <div class="glass">
+      <h1 class="display-4 fw-bold">Hi, I'm Your Name</h1>
+      <p class="lead">Creative Developer | UI Designer | Freelancer</p>
+      <a href="#projects" class="btn btn-primary btn-lg mt-3">View My Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container text-center" data-aos="fade-up">
+    <h2 class="mb-4">About Me</h2>
+    <p class="lead">
+      Passionate developer building beautiful and functional websites using
+      modern technologies like Bootstrap, JavaScript, and React.
+    </p>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2>My Skills</h2>
+      <p class="text-muted">Technologies I work with</p>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-3" data-aos="flip-left">
+        <h5>HTML</h5>
+        <div class="progress"><div class="progress-bar bg-primary" style="width:90%">90%</div></div>
+      </div>
+      <div class="col-md-3" data-aos="flip-left" data-aos-delay="100">
+        <h5>CSS</h5>
+        <div class="progress"><div class="progress-bar bg-success" style="width:85%">85%</div></div>
+      </div>
+      <div class="col-md-3" data-aos="flip-left" data-aos-delay="200">
+        <h5>Bootstrap</h5>
+        <div class="progress"><div class="progress-bar bg-info" style="width:80%">80%</div></div>
+      </div>
+      <div class="col-md-3" data-aos="flip-left" data-aos-delay="300">
+        <h5>JavaScript</h5>
+        <div class="progress"><div class="progress-bar bg-warning" style="width:75%">75%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2>Projects</h2>
+      <p class="text-muted">Some of my recent work</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="zoom-in">
+        <div class="card project-card">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="">
+          <div class="card-body">
+            <h5>Project One</h5>
+            <p class="text-muted">Modern responsive website design.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card project-card">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="">
+          <div class="card-body">
+            <h5>Project Two</h5>
+            <p class="text-muted">Creative landing page with animations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card project-card">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" alt="">
+          <div class="card-body">
+            <h5>Project Three</h5>
+            <p class="text-muted">Full-stack web application.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2>Contact Me</h2>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="contactForm" novalidate>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" rows="4" placeholder="Message" required></textarea>
+          </div>
+          <button class="btn btn-primary w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+  <div class="container">
+    <h5>Your Name</h5>
+    <p>© 2026 All Rights Reserved</p>
+    <div>
+      <a href="#"><i class="bi bi-linkedin"></i></a>
+      <a href="#" class="mx-3"><i class="bi bi-github"></i></a>
+      <a href="#"><i class="bi bi-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+
+  // Navbar Scroll Effect
+  window.addEventListener("scroll", function() {
+    document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  // Dark Mode Toggle
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    const html = document.documentElement;
+    const current = html.getAttribute("data-bs-theme");
+    html.setAttribute("data-bs-theme", current === "light" ? "dark" : "light");
+    toggle.innerHTML = current === "light" 
+      ? '<i class="bi bi-sun"></i>' 
+      : '<i class="bi bi-moon"></i>';
+  });
+
+  // Simple Form Validation
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    if (!this.checkValidity()) {
+      e.preventDefault();
+      alert("Please fill all fields correctly.");
+    } else {
+      e.preventDefault();
+      alert("Message sent successfully!");
+      this.reset();
+    }
+  });
+</script>
 
 </body>
-
 </html>
