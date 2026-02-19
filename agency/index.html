@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Creative Agency</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f0f;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* VIDEO HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+/* THREE JS CANVAS */
+#three-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* SECTIONS */
+section {
+  padding: 120px 0;
+}
+
+.service-box {
+  padding: 40px;
+  background: #1a1a1a;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.service-box:hover {
+  transform: translateY(-10px);
+  background: #222;
+}
+</style>
+</head>
+<body>
+
+<!-- THREE JS BACKGROUND -->
+<canvas id="three-bg"></canvas>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <video autoplay muted loop>
+    <source src="https://videos.pexels.com/video-files/20611243/20611243-hd_1920_1080_24fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="w-100">
+      <h1 class="display-3 fw-bold hero-title">We Build Digital Excellence</h1>
+      <p class="lead hero-sub">Creative Studio • Branding • Development</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <div class="container text-center">
+    <h2 class="mb-5 section-title">Our Expertise</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="service-box">
+          <h4>UI/UX Design</h4>
+          <p>Modern & user-focused digital experiences.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-box">
+          <h4>Web Development</h4>
+          <p>High-performance & scalable platforms.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-box">
+          <h4>Brand Strategy</h4>
+          <p>Positioning brands for global success.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+
+/* ===========================
+   THREE JS PARTICLE BACKGROUND
+=========================== */
+const canvas = document.getElementById("three-bg");
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({canvas, alpha:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+const geometry = new THREE.BufferGeometry();
+const vertices = [];
+
+for (let i = 0; i < 1000; i++) {
+  vertices.push(
+    THREE.MathUtils.randFloatSpread(2000),
+    THREE.MathUtils.randFloatSpread(2000),
+    THREE.MathUtils.randFloatSpread(2000)
+  );
+}
+
+geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+const material = new THREE.PointsMaterial({color: 0xffffff});
+const points = new THREE.Points(geometry, material);
+scene.add(points);
+
+camera.position.z = 500;
+
+function animate() {
+  requestAnimationFrame(animate);
+  points.rotation.x += 0.0005;
+  points.rotation.y += 0.0005;
+  renderer.render(scene, camera);
+}
+animate();
+
+/* ===========================
+   GSAP ANIMATIONS
+=========================== */
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero animation
+gsap.from(".hero-title", {
+  y: 100,
+  opacity: 0,
+  duration: 1.5
+});
+
+gsap.from(".hero-sub", {
+  y: 50,
+  opacity: 0,
+  duration: 1.5,
+  delay: 0.5
+});
+
+// Scroll-triggered animation
+gsap.from(".service-box", {
+  scrollTrigger: {
+    trigger: ".service-box",
+    start: "top 80%",
+  },
+  y: 100,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.3
+});
+
+</script>
+
+</body>
+</html>

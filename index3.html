@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Premium Portfolio</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+
+/* Global */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Glass Navbar */
+.navbar {
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.hero-text span {
+  color: #00d4ff;
+}
+
+.hero-img img {
+  width: 100%;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Glass Cards */
+.glass-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.glass-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Section spacing */
+section {
+  padding: 100px 0;
+}
+
+/* Buttons */
+.btn-premium {
+  background: linear-gradient(45deg, #00d4ff, #0072ff);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-premium:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
+footer {
+  background: rgba(0,0,0,0.6);
+  padding: 40px 0;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00d4ff;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">MyBrand</a>
+    <div>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <div class="col-lg-6 hero-text">
+        <h1>We Build <span>Premium</span><br>Digital Experiences</h1>
+        <p class="lead mt-3">
+          Creative agency crafting modern websites & powerful brand identities.
+        </p>
+        <button class="btn btn-premium mt-3">Get Started</button>
+      </div>
+
+      <div class="col-lg-6 hero-img text-center">
+        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766" class="img-fluid rounded-4 shadow">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container text-center">
+    <h2 class="mb-5">About Our Agency</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="glass-card">
+          <i class="bi bi-lightning-charge fs-1 text-info"></i>
+          <h5 class="mt-3">Fast Performance</h5>
+          <p>Optimized websites built for speed and SEO performance.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="glass-card">
+          <i class="bi bi-palette fs-1 text-info"></i>
+          <h5 class="mt-3">Creative Design</h5>
+          <p>Modern UI/UX design with premium visual aesthetics.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="glass-card">
+          <i class="bi bi-shield-check fs-1 text-info"></i>
+          <h5 class="mt-3">Secure Systems</h5>
+          <p>Clean and secure code with best industry practices.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container text-center">
+    <h2 class="mb-5">Recent Projects</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="glass-card">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" class="img-fluid rounded mb-3">
+          <h5>Corporate Website</h5>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="glass-card">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" class="img-fluid rounded mb-3">
+          <h5>E-commerce Platform</h5>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="glass-card">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" class="img-fluid rounded mb-3">
+          <h5>Startup Branding</h5>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container text-center">
+    <h2 class="mb-4">Let's Work Together</h2>
+    <button class="btn btn-premium">Contact Us</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+  <div class="container">
+    <h5>MyBrand</h5>
+    <p>© 2026 All Rights Reserved</p>
+    <div class="social-icons">
+      <a href="#"><i class="bi bi-linkedin"></i></a>
+      <a href="#"><i class="bi bi-github"></i></a>
+      <a href="#"><i class="bi bi-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
